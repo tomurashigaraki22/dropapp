@@ -1,21 +1,48 @@
+import React from 'react';
+import { useState } from 'react';
 import Button from './components/ui/Button'
-import { MapPin, Navigation, Clock, Package, Shield } from 'lucide-react'
+import { MapPin, Navigation, Clock, Package, Shield, Menu } from 'lucide-react'
+import { X } from "lucide-react";
+
 
 function App() {
+
+  const [isOpen, setIsOpen] = useState(true); // State to track navbar visibility
+
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <main className="min-h-screen">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white shadow-sm">
-        <div className="container mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between">
-          <div className="text-2xl font-bold text-[#f27e05] mb-4 sm:mb-0">Drop</div>
+      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="text-2xl font-bold text-[#f27e05]">Drop</div>
+        {isOpen && (
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center">
-            <Button variant="ghost" className="w-full sm:w-auto">About</Button>
-            <Button variant="ghost" className="w-full sm:w-auto">Services</Button>
-            <Button variant="ghost" className="w-full sm:w-auto">Contact</Button>
-            <Button className="w-full sm:w-auto bg-[#f27e05] hover:bg-[#f27e05]/90">Download App</Button>
+            <Button variant="ghost" className="w-full sm:w-auto">
+              About
+            </Button>
+            <Button variant="ghost" className="w-full sm:w-auto">
+              Services
+            </Button>
+            <Button variant="ghost" className="w-full sm:w-auto">
+              Contact
+            </Button>
+            <Button className="w-full sm:w-auto bg-[#f27e05]/60 hover:bg-[#f27e05]/90">
+              Download App
+            </Button>
           </div>
-        </div>
-      </nav>
+        )}
+        {/* X icon for closing */}
+        <button
+          className="sm:hidden ml-4 text-gray-600 hover:text-gray-800"
+          onClick={toggleNavbar}
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24}/>}
+        </button>
+      </div>
+    </nav>
 
       {/* Hero Section */}
       <section className="pt-24 pb-12 px-4 md:pt-32 md:pb-24">
@@ -90,7 +117,7 @@ function App() {
               <img 
                 src="/images/delivery-service.jpeg"
                 alt="Ride service"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain md:object-cover lg:object-cover"
               />
               <div className="absolute inset-0 gradient-overlay opacity-0 group-hover:opacity-100 transition-opacity">
                 <div className="absolute bottom-0 left-0 p-6 text-white">
@@ -103,7 +130,7 @@ function App() {
               <img 
                 src="/images/driver-happy.jpeg"
                 alt="Delivery service"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain md:object-cover lg:object-cover"
               />
               <div className="absolute inset-0 gradient-overlay opacity-0 group-hover:opacity-100 transition-opacity">
                 <div className="absolute bottom-0 left-0 p-6 text-white">
