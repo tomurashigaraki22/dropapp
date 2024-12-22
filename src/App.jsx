@@ -17,7 +17,10 @@ function App() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white shadow-sm">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="text-2xl font-bold text-[#f27e05]">Drop</div>
+        <div className="text-2xl font-bold text-[#f27e05] flex items-center justify-start">
+          <img src='/images/locate_white.png' alt='Icon' style={{ width: 36, height: 48, objectFit: 'contain'}}/>
+          <p>Drop</p>
+        </div>
         {isOpen && (
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center">
             <Button variant="ghost" className="w-full sm:w-auto">
