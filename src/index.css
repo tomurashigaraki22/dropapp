@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Livvic:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #f27e05;
+}
+
+@layer base {
+  body {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Livvic', sans-serif;
+    font-weight: 700;
+  }
+}
+
+.gradient-overlay {
+  background: linear-gradient(to right, rgba(242, 126, 5, 0.9), rgba(242, 126, 5, 0.7));
+}
+
