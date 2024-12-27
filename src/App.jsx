@@ -11,7 +11,7 @@ function App() {
   };
 
   return (
-    <main className="min-h-screen p-0 md:px-12 lg:px-12">
+    <main className="min-h-screen max-w-screen overflow-x-hidden">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white shadow-sm">
         <div className="container mx-auto px-4 py-4">
