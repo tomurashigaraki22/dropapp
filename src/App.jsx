@@ -83,7 +83,7 @@ function App() {
               <img 
                 src="/images/car-hero.jpeg"
                 alt="Drop car"
-                className="w-full h-full object-contain md:object-cover lg:object-cover"
+                className="w-full h-full object-contain md:object-contain lg:object-contain"
               />
             </div>
           </FadeIn>
@@ -101,7 +101,7 @@ function App() {
           <FadeIn delay={0.5} duration={3}>
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <p className="text-xl text-gray-600">
-              Drop is more than just a ride-sharing platform; we're a movement towards smarter, more efficient urban mobility. Founded in 2023, we've quickly grown to become a leading player in the transportation industry, thanks to our unwavering commitment to innovation, safety, and customer satisfaction.
+              Drop is more than just a ride-sharing platform; we're a movement towards smarter, more efficient urban mobility. Founded in 2024, we've quickly grown to become a leading player in the transportation industry, thanks to our unwavering commitment to innovation, safety, and customer satisfaction.
             </p>
             <p className="text-xl text-gray-600">
               Our mission is to provide seamless, efficient, and affordable transportation services to communities around the world. We believe in a future where getting from point A to point B is not just about the destination, but about enjoying the journey.
