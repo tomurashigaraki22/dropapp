@@ -194,7 +194,7 @@ function App() {
                 </div>
               </FadeIn>
             </div>
-            <SlideIn direction='left' delay={0.5} duration={2}>
+            <SlideIn direction='left' delay={0.5} duration={1}>
             <div className="space-y-8">
               <div className="relative h-[300px] rounded-lg overflow-hidden group">
                 <img 
