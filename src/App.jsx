@@ -2,16 +2,22 @@ import React, { useState } from 'react';
 import Button from './components/ui/Button';
 import {Bounce, FadeIn, SlideIn} from 'tmt-anim-library'
 import { MapPin, Navigation, Clock, Package, Shield, Menu, X, Car, Truck, Star, DollarSign, Headphones, Zap } from 'lucide-react';
+import DownloadModal from './components/ui/DownloadModal';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showDownloadModal, setShowDownloadModal] = useState(false);
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const openDownloadModal = () => setShowDownloadModal(true);
+  const closeDownloadModal = () => setShowDownloadModal(false);
+
   return (
     <main className="min-h-screen max-w-screen overflow-x-hidden">
+      <DownloadModal open={showDownloadModal} onClose={closeDownloadModal} />
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white shadow-sm">
         <div className="container mx-auto px-4 py-4">
@@ -26,7 +32,7 @@ function App() {
               <a href="#testimonials" className="text-gray-600 hover:text-[#f27e05]">Testimonials</a>
               <a href="#contact" className="text-gray-600 hover:text-[#f27e05]">Contact</a>
             </div>
-            <Button className="hidden md:block bg-[#f27e05] hover:bg-[#f27e05]/90">
+            <Button className="hidden md:block bg-[#f27e05] hover:bg-[#f27e05]/90" onClick={openDownloadModal}>
               Download App
             </Button>
             <button
@@ -42,7 +48,7 @@ function App() {
               <a href="#services" className="block text-gray-600 hover:text-[#f27e05]">Services</a>
               <a href="#testimonials" className="block text-gray-600 hover:text-[#f27e05]">Testimonials</a>
               <a href="#contact" className="block text-gray-600 hover:text-[#f27e05]">Contact</a>
-              <Button className="w-full bg-[#f27e05] hover:bg-[#f27e05]/90">
+              <Button className="w-full bg-[#f27e05] hover:bg-[#f27e05]/90" onClick={openDownloadModal}>
                 Download App
               </Button>
             </div>
@@ -68,10 +74,10 @@ function App() {
             <FadeIn delay={0.5} duration={1}>
               <Bounce duration={2}>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                  <Button size="lg" className="w-full sm:w-auto bg-[#f27e05] hover:bg-[#f27e05]/90 text-xl py-6">
+                  <Button size="lg" className="w-full sm:w-auto bg-[#f27e05] hover:bg-[#f27e05]/90 text-xl py-6" onClick={openDownloadModal}>
                     Book a Ride
                   </Button>
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-xl py-6">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-xl py-6" onClick={openDownloadModal}>
                     Learn More
                   </Button>
                 </div>
@@ -300,10 +306,10 @@ function App() {
             Download the Drop app now and experience the future of transportation and delivery services. Join thousands of satisfied customers who have made Drop their go-to choice for reliable, efficient, and comfortable rides.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Button size="lg" variant="secondary" className="w-full sm:w-auto bg-white text-[#f27e05] hover:bg-gray-100 text-xl py-6">
+            <Button size="lg" variant="secondary" className="w-full sm:w-auto bg-white text-[#f27e05] hover:bg-gray-100 text-xl py-6" onClick={openDownloadModal}>
               Download App
             </Button>
-            <Button size="lg" variant="outline" className="w-full sm:w-auto border-white text-white hover:bg-white/10 text-xl py-6">
+            <Button size="lg" variant="outline" className="w-full sm:w-auto border-white text-white hover:bg-white/10 text-xl py-6" onClick={openDownloadModal}>
               Learn More
             </Button>
           </div>
