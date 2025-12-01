@@ -86,13 +86,14 @@ export default function DownloadModal({ open, onClose }) {
               {choice.platform === 'android' ? 'Android' : 'iOS'} Options
             </h3>
             <div className="flex flex-col gap-4">
-              <button
-                type="button"
-                onClick={() => window.location.assign(apps[activeTab][choice.platform].url)}
+              <a
+                href={apps[activeTab][choice.platform].url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`w-full text-center px-4 py-3 rounded-lg font-semibold transition-colors ${choice.platform === 'android' ? 'bg-[#f27e05] text-white hover:bg-[#f27e05]/90' : 'bg-black text-white hover:bg-black/90'}`}
               >
                 {choice.platform === 'android' ? 'Download APK' : 'Open App Store'}
-              </button>
+              </a>
               <div className="border rounded-lg p-4 flex flex-col items-center gap-3">
                 <p className="font-medium">Scan QR code to download</p>
                 <img
@@ -100,13 +101,14 @@ export default function DownloadModal({ open, onClose }) {
                   alt="QR Code"
                   className="w-40 h-40"
                 />
-                <button
-                  type="button"
-                  onClick={() => window.location.assign(apps[activeTab][choice.platform].url)}
+                <a
+                  href={apps[activeTab][choice.platform].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-[#f27e05] font-semibold"
                 >
                   Open Link
-                </button>
+                </a>
               </div>
             </div>
           </div>
