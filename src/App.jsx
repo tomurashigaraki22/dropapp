@@ -75,7 +75,7 @@ function App() {
               <Bounce duration={2}>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                   <Button size="lg" className="w-full sm:w-auto bg-[#f27e05] hover:bg-[#f27e05]/90 text-xl py-6" onClick={openDownloadModal}>
-                    Book a Ride
+                    Download App
                   </Button>
                   <Button size="lg" variant="outline" className="w-full sm:w-auto text-xl py-6" onClick={openDownloadModal}>
                     Learn More
