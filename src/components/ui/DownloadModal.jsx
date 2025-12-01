@@ -86,14 +86,35 @@ export default function DownloadModal({ open, onClose }) {
               {choice.platform === 'android' ? 'Android' : 'iOS'} Options
             </h3>
             <div className="flex flex-col gap-4">
-              <a
-                href={apps[activeTab][choice.platform].url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`w-full text-center px-4 py-3 rounded-lg font-semibold transition-colors ${choice.platform === 'android' ? 'bg-[#f27e05] text-white hover:bg-[#f27e05]/90' : 'bg-black text-white hover:bg-black/90'}`}
-              >
-                {choice.platform === 'android' ? 'Download APK' : 'Open App Store'}
-              </a>
+              {choice.platform === 'android' ? (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => { window.location.href = apps[activeTab].android.url; }}
+                    className="w-full text-center px-4 py-3 rounded-lg font-semibold bg-[#f27e05] text-white hover:bg-[#f27e05]/90 transition-colors"
+                  >
+                    Download APK
+                  </button>
+                  <p className="text-sm text-gray-500 text-center">If the download doesn’t start, open in a new tab.</p>
+                  <a
+                    href={apps[activeTab].android.url}
+                    target="_blank"
+                    rel="noopener"
+                    className="text-sm text-center text-[#f27e05] font-semibold"
+                  >
+                    Open in new tab
+                  </a>
+                </>
+              ) : (
+                <a
+                  href={apps[activeTab].ios.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full text-center px-4 py-3 rounded-lg font-semibold bg-black text-white hover:bg-black/90 transition-colors"
+                >
+                  Open App Store
+                </a>
+              )}
               <div className="border rounded-lg p-4 flex flex-col items-center gap-3">
                 <p className="font-medium">Scan QR code to download</p>
                 <img
@@ -117,3 +138,4 @@ export default function DownloadModal({ open, onClose }) {
     </div>
   );
 }
+    
