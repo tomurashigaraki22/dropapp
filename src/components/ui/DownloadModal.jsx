@@ -27,6 +27,7 @@ const apps = {
 export default function DownloadModal({ open, onClose }) {
   const [activeTab, setActiveTab] = useState('user');
   const [choice, setChoice] = useState(null);
+  const [copied, setCopied] = useState(false);
   if (!open) return null;
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
@@ -95,15 +96,30 @@ export default function DownloadModal({ open, onClose }) {
                   >
                     Download APK
                   </button>
-                  <p className="text-sm text-gray-500 text-center">If the download doesn’t start, open in a new tab.</p>
-                  <a
-                    href={apps[activeTab].android.url}
-                    target="_blank"
-                    rel="noopener"
-                    className="text-sm text-center text-[#f27e05] font-semibold"
+                  <p className="text-sm text-gray-500 text-center">If the download doesn’t start, copy the link and paste in a new tab.</p>
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      const text = apps[activeTab].android.url;
+                      try {
+                        await navigator.clipboard.writeText(text);
+                        setCopied(true);
+                        setTimeout(() => setCopied(false), 2000);
+                      } catch {
+                        const ta = document.createElement('textarea');
+                        ta.value = text;
+                        ta.style.position = 'fixed';
+                        ta.style.opacity = '0';
+                        document.body.appendChild(ta);
+                        ta.focus();
+                        ta.select();
+                        try { document.execCommand('copy'); setCopied(true); setTimeout(() => setCopied(false), 2000); } finally { document.body.removeChild(ta); }
+                      }
+                    }}
+                    className="w-full text-center px-4 py-2 rounded-lg font-semibold border border-[#f27e05] text-[#f27e05] hover:bg-[#f27e05]/10"
                   >
-                    Open in new tab
-                  </a>
+                    {copied ? 'Copied!' : 'Copy Link'}
+                  </button>
                 </>
               ) : (
                 <a
